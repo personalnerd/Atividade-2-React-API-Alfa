@@ -5,6 +5,7 @@ import LocationResidentItem from '../location/residentItem';
 import './search.scss'
 
 export default function CharacterSearch({ formValues, setModal }) {    
+    const [error, setError] = useState(false)
     const [info, setInfo] = useState(null)
     const [data, setData] = useState([]);
     const [next, setNext] = useState(null);
@@ -43,9 +44,14 @@ export default function CharacterSearch({ formValues, setModal }) {
         fetch(`https://rickandmortyapi.com/api/character/?${queryString}`)
         .then(res => res.json())
         .then(json => {
-            setData(json.results)
-            setInfo(json.info)
-            setNext(json.info.next)
+            if (json.error) {
+                setError(json.error)
+            } else {
+                setData(json.results)
+                setInfo(json.info)
+                setNext(json.info.next)
+                setError(false);
+            }
             setLoading(false);
         })
     }
@@ -121,9 +127,11 @@ export default function CharacterSearch({ formValues, setModal }) {
                 <h3>Results: <span>{info && `${info.count} items found`}</span></h3>
                 
                 <div className="modal-search-results__list">
-                    {data && data?.map((character) => (
-                        <LocationResidentItem key={character.id} url={character.url} clickCharacter={clickCharacter} />
-                    ))}
+                    {error ? error :
+                        data && data?.map((character) => (
+                            <LocationResidentItem key={character.id} url={character.url} clickCharacter={clickCharacter} />
+                        ))
+                    }
                     {next && <div onClick={() => loadMore(next)} className="link load-more">{loading && <FontAwesomeIcon icon={faSpinner} spin />}Load more</div>}
                 </div>
             </div>

@@ -6,6 +6,7 @@ export default function LocationInfo({ url, setModal }) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
+    const [hasResidents, setResidents] = useState(false);
 
     useEffect(() => {
         fetch(url)
@@ -13,6 +14,8 @@ export default function LocationInfo({ url, setModal }) {
             .then(json => {
                 setIsLoaded(true);
                 setData(json);
+                if (json.residents.length > 0)
+                    setResidents(true)
             })
     }, []);
 
@@ -47,11 +50,14 @@ export default function LocationInfo({ url, setModal }) {
                     </div>
                     <div className="modal-location-residents">
                         <h3>Residents:</h3>
-                        <div className="modal-location-residents__list">
-                            {data.residents ? data?.residents.map((resident, index) => (
-                                <LocationResidentItem key={index} url={resident} clickCharacter={clickCharacter} />
-                            )) : "Oops, something wrong is not right." }
-                        </div>
+                            <div className="modal-location-residents__list">
+                            {hasResidents ?
+                                data.residents ? data?.residents.map((resident, index) => (
+                                    <LocationResidentItem key={index} url={resident} clickCharacter={clickCharacter} />
+                                )) : "Ops. Something wrong is not right."
+                                : "There are no residents in this location."
+                            }
+                            </div>
                     </div>
                 </>
             }

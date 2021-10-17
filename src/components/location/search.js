@@ -5,6 +5,7 @@ import LocationSearchItem from './locationItem';
 import './search.scss'
 
 export default function LocationSearch({ formValues, setModal }) {    
+    const [error, setError] = useState(false)
     const [info, setInfo] = useState(null)
     const [data, setData] = useState([]);
     const [next, setNext] = useState(null);
@@ -29,9 +30,14 @@ export default function LocationSearch({ formValues, setModal }) {
         fetch(`https://rickandmortyapi.com/api/location/?${queryString}`)
         .then(res => res.json())
         .then(json => {
-            setData(json.results)
-            setInfo(json.info)
-            setNext(json.info.next)
+            if (json.error) {
+                setError(json.error)
+            } else {
+                setData(json.results)
+                setInfo(json.info)
+                setNext(json.info.next)
+                setError(false);
+            }
             setLoading(false);
         })
     }
@@ -91,9 +97,11 @@ export default function LocationSearch({ formValues, setModal }) {
                 <h3>Results: <span>{info && `${info.count} items found`}</span></h3>
                 
                 <div className="modal-location-search-results__list">
-                    {data && data?.map((location) => (
-                        <LocationSearchItem key={location.id} url={location.url} clickLocation={clickLocation} />
-                    ))}
+                    {error ? error :
+                        data && data?.map((location) => (
+                            <LocationSearchItem key={location.id} url={location.url} clickLocation={clickLocation} />
+                        ))
+                    }
                     {next && <div onClick={() => loadMore(next)} className="link load-more">{loading && <FontAwesomeIcon icon={faSpinner} spin />}Load more</div>}
                 </div>
             </div>
