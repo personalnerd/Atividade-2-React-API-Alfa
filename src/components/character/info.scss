@@ -1,0 +1,117 @@
+.modal-character {
+    @mixin global {
+        padding: 2rem;
+        display: flex;
+        align-items: flex-start;
+    }
+    &-info {
+        @include global;
+        background-color: rgb(245, 245, 245);
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        position: relative;        
+
+        &__img {
+            width: 220px;
+            max-width: 100%;
+            border-radius: 200px;
+        }
+
+        &__details {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        &__info {
+            margin-left: 3rem;
+            width: 100%;
+
+            table {
+                border-collapse: collapse;
+                margin-right: 3rem;
+    
+                tr {
+                    
+                    th, td {
+                        padding: .5rem .5rem .5rem 0;
+                        display: inline-block;
+                    }
+                    th {
+                        width: 100px;
+                        color: #999;
+                        font-weight: normal;
+                        text-align: left;
+                        border-bottom: 1px solid #dadada;
+                    }
+                    td {
+                        padding-right: 5rem;
+                        border-bottom-width: 1px;
+                        border-bottom-style: solid;
+                        border-image: linear-gradient(to right,#dadada,transparent)1;
+                    }
+                    &:last-child {
+                        th, td {
+                            border-bottom: none;
+                        }
+                    }
+                }
+    
+            }
+        }
+
+        &__name {
+            font-size: 3rem;
+            margin: 0 0 2rem 0;
+            color: #00AFC7;
+            font-weight: normal;
+        }
+
+        .stamp {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            text-transform: uppercase;
+            font-family: 'Courier';
+            -webkit-mask-image: url('../../grunge.png');
+            -webkit-mask-size: 944px 604px;
+            mix-blend-mode: multiply;
+            color: #555;
+            border: 0.25rem solid #555;
+            transform: rotate(12deg);
+            border-radius: 1rem;
+            
+            &.Alive {
+                color: #0A9928;
+                border: 0.4rem solid #0A9928;
+                -webkit-mask-position: 13rem 6rem;
+                transform: rotate(-14deg);
+                border-radius: 0;
+            }
+
+            &.Dead {
+                color: #D23;
+                border: 0.5rem double #D23;
+                transform: rotate(3deg);
+                -webkit-mask-position: 2rem 3rem;
+            }
+        }        
+    }
+    &-episodes {        
+        @include global;
+        
+        h3 {
+            margin-top: 0;
+            width: 220px;
+            text-align: right;
+        }
+        &__list {
+            margin-left: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

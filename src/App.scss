@@ -1,0 +1,49 @@
+@import './base.scss';
+
+.App {	
+	padding: 2rem;
+	
+	header {
+		text-align: center;
+		margin-bottom: 3rem;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.row {
+		display: flex;
+		gap: 2%;
+
+		.col {
+			width: 32%;
+			padding: 1rem;
+
+			h2 {
+				font-weight: normal;
+				margin-top: 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				.search-icon {
+					color: $secondaryColor;
+					font-size: 1rem;
+					cursor: pointer;
+				}
+			}			
+		}
+
+		@media (max-width: 900px) {
+			flex-direction: column;
+			gap: 2rem;
+		
+			.col {
+				width: 100%;
+			}
+		}
+	}
+
+	
+}

@@ -1,0 +1,26 @@
+.location-resident-item {
+    background-color:  rgb(245, 245, 245);;
+    border-radius: 10px;
+    margin: 0 1rem 1rem 0;
+    width: 150px;
+    transition: all ease .2s;
+
+    &:hover {
+        box-shadow: 0 4px 4px rgba(#ccc, .6);
+        cursor: pointer;
+        span {
+            color: inherit;
+        }
+    }
+
+    img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+
+    span {
+        color: #999;
+        display: block;
+        padding: .5rem;
+    }
+}

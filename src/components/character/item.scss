@@ -1,0 +1,45 @@
+@import '../../base.scss';
+
+.character {
+    &-item {
+        display: flex;
+        border-radius: 10px;
+        background-color: $bgColor;
+        height: $imgHeight;
+        align-items: center;
+        margin-bottom: 1rem;
+        box-shadow: 0px 3px 4px rgba($color: #000, $alpha: .2);
+
+        &__icon {
+            color: $secondaryColor;
+            margin: 0 1rem 0 auto;
+            transition: ease .2s;
+        }
+
+        &:hover {
+            cursor: pointer;
+            .character-item__icon {
+                margin-right: .7rem;
+            }
+        }
+    }
+    &-img {
+        width: $imgHeight;
+        height: $imgHeight;
+        border-radius: 10px 0 0 10px;					
+    }
+    &-info {
+        margin-left: 1rem;
+        p {
+            margin: 0;
+            &.character-info {
+                &__name {
+                    margin-bottom: .5rem;
+                }
+                &__specie {
+                    color:$secondaryColor;
+                }
+            }
+        }
+    }
+}

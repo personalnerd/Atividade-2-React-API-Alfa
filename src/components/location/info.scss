@@ -1,0 +1,68 @@
+.modal-location {
+    @mixin global {
+        padding: 2rem;
+        display: flex;
+        align-items: flex-start;
+    }
+    &-info {
+        @include global;
+        background-color: rgb(245, 245, 245);
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+        flex-direction: column;
+
+        &__name {
+            font-size: 3rem;
+            margin: 0 0 2rem 0;
+            color: #00AFC7;
+            font-weight: normal;
+            display: block;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-right: 3rem;
+
+            tr {
+                
+                th, td {
+                    padding: .5rem .5rem .5rem 0;
+                    display: inline-block;
+                }
+                th {
+                    width: 100px;
+                    color: #999;
+                    font-weight: normal;
+                    text-align: left;
+                    border-bottom: 1px solid #dadada;
+                }
+                td {
+                    padding-right: 5rem;
+                    border-bottom-width: 1px;
+                    border-bottom-style: solid;
+                    border-image: linear-gradient(to right,#dadada,transparent)1;
+                }
+                &:last-child {
+                    th, td {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+        }
+    }
+    &-residents {
+        @include global;
+        
+        h3 {
+            margin-top: 0;
+            text-align: right;
+        }
+        &__list {
+            margin-left: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

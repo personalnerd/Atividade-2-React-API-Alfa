@@ -1,0 +1,106 @@
+.modal-location-search {
+    @mixin global {
+        padding: 2rem;
+        display: flex;
+        align-items: flex-start;
+    }
+    &-filter {
+        @include global;
+        padding-bottom: 1rem;
+        background-color: rgb(245, 245, 245);
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+        flex-direction: column;
+
+        &__title {
+            font-size: 3rem;
+            margin: 0 0 2rem 0;
+            color: #00AFC7;
+            font-weight: normal;
+            display: block;
+        }
+
+        &__form {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+
+            .form-group {
+                margin: 0 1rem 1rem 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                label {
+                    display: block;
+                    color: #999;
+                    font-size: .9em;
+                    padding-bottom: .3rem;
+                }
+                input[type=text], select {
+                    display: block;
+                    width: 180px;
+                    height: 2.5rem;
+                    padding: 0 .5rem;
+                    border: 1px solid #CCC;
+                    border-radius: 5px;
+                }
+                button {
+                    display: block;
+                    height: 2.5rem;
+                    padding: 0 1rem;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: #00AFC7;
+                    color: white;
+                    cursor: pointer;
+
+                    &[type=reset] {
+                        border: 2px solid #00AFC7;
+                        background-color: transparent;
+                        color: #00AFC7;
+                        
+                        &:hover {
+                            background-color: #dadada;
+                        }
+                    }
+                    &:hover {
+                        background-color: darken($color: #00AFC7, $amount: 5%);
+                    }
+
+                }
+            }
+        }
+    }    
+    &-results {
+        @include global;
+        flex-direction: column;
+        
+        h3 {
+            margin-top: 0;
+            text-align: right;
+
+            span {
+                font-weight: normal;
+                color: #999;
+            }
+        }
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .load-more {
+            background-color: whitesmoke;
+            border-radius: 10px;
+            margin: 0 1rem 1rem 0;
+            width: 150px;
+            transition: all ease .2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
