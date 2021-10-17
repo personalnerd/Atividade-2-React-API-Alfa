@@ -5,6 +5,8 @@ Turma 5 Web Dev - 2021
 
 API consumida: [Rick & Morty API](https://rickandmortyapi.com)
 
+App em execução: [https://react-api-alfa-tarcisio.surge.sh/](https://react-api-alfa-tarcisio.surge.sh/)
+
 --
 
 # Getting Started with Create React App
