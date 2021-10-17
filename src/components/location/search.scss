@@ -55,16 +55,7 @@
                     background-color: #00AFC7;
                     color: white;
                     cursor: pointer;
-
-                    &[type=reset] {
-                        border: 2px solid #00AFC7;
-                        background-color: transparent;
-                        color: #00AFC7;
-                        
-                        &:hover {
-                            background-color: #dadada;
-                        }
-                    }
+                    
                     &:hover {
                         background-color: darken($color: #00AFC7, $amount: 5%);
                     }

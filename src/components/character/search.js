@@ -116,9 +116,6 @@ export default function CharacterSearch({ formValues, setModal }) {
                         <input type="text" name="type" id="type" onChange={handleChange} value={values?.type} />
                     </div>
                     <div className="form-group">
-                        <button type="reset">Reset</button>
-                    </div>
-                    <div className="form-group">
                         <button type="submit">{loading ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Go' }</button>
                     </div>
                 </form>

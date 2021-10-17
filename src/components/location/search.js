@@ -86,9 +86,6 @@ export default function LocationSearch({ formValues, setModal }) {
                         <input type="text" name="dimension" id="dimension" onChange={handleChange} value={values?.dimension} />
                     </div>
                     <div className="form-group">
-                        <button type="reset">Reset</button>
-                    </div>
-                    <div className="form-group">
                         <button type="submit">{loading ? <FontAwesomeIcon icon={faSpinner} spin /> : 'Go' }</button>
                     </div>
                 </form>
