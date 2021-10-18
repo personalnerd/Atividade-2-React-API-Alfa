@@ -7,6 +7,10 @@ API consumida: [Rick & Morty API](https://rickandmortyapi.com)
 
 App em execução: [https://react-api-alfa-tarcisio.surge.sh/](https://react-api-alfa-tarcisio.surge.sh/)
 
+Falta:
+- Melhorar apresentação mobile
+- Fazer o componentte buscar automaticamente, quando abre o modal de pesquisa com um termo preenchido.
+
 --
 
 # Getting Started with Create React App
