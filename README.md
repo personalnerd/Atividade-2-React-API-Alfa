@@ -9,7 +9,7 @@ App em execução: [https://react-api-alfa-tarcisio.surge.sh/](https://react-api
 
 Falta:
 - Melhorar apresentação mobile
-- Fazer o componentte buscar automaticamente, quando abre o modal de pesquisa com um termo preenchido.
+- Fazer o componente buscar automaticamente, quando abre o modal de pesquisa com um termo preenchido.
 
 --
 
